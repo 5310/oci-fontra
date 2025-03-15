@@ -8,8 +8,8 @@ LABEL org.opencontainers.image.url="https://github.com/5310/oci-fontra"
 
 LABEL RUN='\
 	podman run -itq --rm \
-		-p 8888:8000 \
-		-v .:/root/volume:U,z \
+		-p 8000:8000 \
+		-v .:/root/volume \
 		\${IMAGE} \
 		"filesystem", "/root/volume" \
 '
@@ -26,3 +26,4 @@ RUN <<-EOR
 EOR
 
 ENTRYPOINT ["/root/fontra/venv/bin/fontra", "--launch"]
+CMD ["filesystem", "/root"]
