@@ -7,8 +7,8 @@ LABEL org.opencontainers.image.url="https://github.com/5310/oci-fontra"
 LABEL RUN="\
 	podman run -itq --rm \
 		--pull newer \
-		-P \
 		-v .:/root/volume \
+		-p 8888:8888 \
 		\$IMAGE \
 		filesystem /root/volume \
 "
@@ -24,6 +24,5 @@ RUN <<-EOR
 	pip install --no-cache-dir -e .
 EOR
 
-EXPOSE 8888
-ENTRYPOINT ["/root/fontra/venv/bin/fontra", "--http-port", "8888"]
+ENTRYPOINT ["/root/fontra/venv/bin/fontra", "--host", "0.0.0.0", "--http-port", "8888"]
 CMD ["filesystem", "/root"]
