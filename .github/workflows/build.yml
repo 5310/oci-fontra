@@ -15,7 +15,7 @@ jobs:
 
       - name: Build container image
         run: |
-          podman run --rm -it --privileged -v.:/root:rw quay.io/podman/stable:latest sh -c "podman build -t fontra:latest -f oci-contra.Containerfile ."
+          podman run --rm -it --privileged -v.:/root:rw quay.io/podman/stable:latest sh -c "podman build -t fontra:latest -f Containerfile ."
 
       - name: Login to registry
         if: github.event_name != 'pull_request'
