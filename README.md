@@ -29,7 +29,7 @@ By default, the container will:
 - Mount the current directory inside the container!
     - Do not run this command from your home directory, as Fontra will try to `chown` it
         - Then fail, thanks to Podman's sensible security policies!
-- Bind to port 8000 on the host
+- Bind to port 8888 on the host
 - Remove itself after it exits
 
 ---

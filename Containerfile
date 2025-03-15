@@ -4,11 +4,10 @@ LABEL org.opencontainers.image.description='A containerized installation of the 
 LABEL org.opencontainers.image.base.name="docker.io/_/alpine:latest"
 LABEL org.opencontainers.image.url="https://github.com/5310/oci-fontra"
 
-# Runlabels
-
+ENV PORT=8888
 LABEL RUN='\
-	podman run -itq --rm --pull \
-		-p 8000:8000 \
+	podman run -itq --rm --pull newer \
+		-p \${PORT}:\${PORT} \
 		-v .:/root/volume \
 		\${IMAGE} \
 		filesystem /root/volume \
@@ -25,5 +24,5 @@ RUN <<-EOR
 	pip install --no-cache-dir -e .
 EOR
 
-ENTRYPOINT ["/root/fontra/venv/bin/fontra", "--launch"]
+ENTRYPOINT ["/root/fontra/venv/bin/fontra"]
 CMD ["filesystem", "/root"]
