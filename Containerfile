@@ -4,12 +4,12 @@ LABEL org.opencontainers.image.description='A containerized installation of the 
 LABEL org.opencontainers.image.base.name="docker.io/_/alpine:latest"
 LABEL org.opencontainers.image.url="https://github.com/5310/oci-fontra"
 
-ARG PORT=8888
+ENV PORT='8888'
 LABEL RUN='\
 	podman run -itq --rm --pull newer \
-		-p \${PORT}:\${PORT} \
+		-p \$PORT:\$PORT \
 		-v .:/root/volume \
-		\${IMAGE} \
+		\$IMAGE \
 		filesystem /root/volume \
 '
 
