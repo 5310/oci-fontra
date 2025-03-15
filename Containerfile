@@ -16,7 +16,7 @@ LABEL RUN='\
 # Install the essential dependencies
 
 RUN <<-EOR
-	apk add --no-cache git python3 nodejs
+	apk add --no-cache git python3 nodejs npm
 	git clone https://github.com/googlefonts/fontra.git /root/fontra
 	cd /root/fontra
 	python3 -m venv venv --prompt=fontra
