@@ -25,11 +25,12 @@ podman container runlabel --display run ghcr.io/5310/fontra
 ```
 
 By default, the container will:
-- Mount the current directory to `/root/volume` inside the container!
+- Try to pull a fresher image
+- Mount the current directory inside the container!
     - Do not run this command from your home directory, as Fontra will try to `chown` it
         - Then fail, thanks to Podman's sensible security policies!
 - Bind to port 8000 on the host
-- Remove itself after it is quit
+- Remove itself after it exits
 
 ---
 

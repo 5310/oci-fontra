@@ -7,11 +7,11 @@ LABEL org.opencontainers.image.url="https://github.com/5310/oci-fontra"
 # Runlabels
 
 LABEL RUN='\
-	podman run -itq --rm \
+	podman run -itq --rm --pull \
 		-p 8000:8000 \
 		-v .:/root/volume \
 		\${IMAGE} \
-		"filesystem", "/root/volume" \
+		filesystem /root/volume \
 '
 
 RUN <<-EOR
