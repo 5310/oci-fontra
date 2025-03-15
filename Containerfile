@@ -1,4 +1,4 @@
-FROM docker.io/_/alpine:latest
+FROM docker.io/library/alpine:latest
 
 LABEL org.opencontainers.image.description='A containerized installation of the web-based Fontra font-editing app'
 LABEL org.opencontainers.image.base.name="docker.io/_/alpine:latest"
