@@ -7,13 +7,12 @@ LABEL org.opencontainers.image.url="https://github.com/5310/oci-fontra"
 # Runlabels
 
 LABEL RUN='\
-	podman run -itq --replace --rm \
+	podman run -itq --rm \
 		-p 8888:8000 \
 		-v .:/root/volume:U,z \
 		\${IMAGE} \
+		"filesystem", "/root/volume" \
 '
-
-# Install the essential dependencies
 
 RUN <<-EOR
 	apk add --no-cache git python3 nodejs npm
@@ -27,4 +26,3 @@ RUN <<-EOR
 EOR
 
 ENTRYPOINT ["/root/fontra/venv/bin/fontra", "--launch"]
-CMD ["filesystem", "/root/volume"]
